@@ -1,5 +1,5 @@
 #My Job Experience Using Lists
-mydata = ["Jellycone", "Coding Spider" , "Capgemini" , "Aveto Consulting"]
+mydata = ["Jellycone", "Coding Spider (merged with Jellycone)" , "Capgemini" , "Aveto Consulting"]
 print("Expernince of work:" , mydata)
 #Removed Capgemini as I got confirmation from Aveto Consulting
 # if "Capgemini" in mydata:
