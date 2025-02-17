@@ -114,6 +114,6 @@ html_content += '''
 ''
 
 with open("job_experience.html", "w") as file:
-    file.write(html_content + codeexplation)
+    file.write(html_content)
 
 print("HTML file 'job_experience.html' created successfully!")
