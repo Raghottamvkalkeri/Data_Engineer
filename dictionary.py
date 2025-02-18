@@ -140,8 +140,6 @@ html += """
                 </body>
                 </html>
                 """
-                
-                
-                
+            
 with open("dictionary.html", "w") as html_file:
     html_file.write(html)
