@@ -137,11 +137,6 @@ basic_details = {
     ]
 }
 
-print("\nBasic Details:")
-print("Name:", basic_details["name"])
-print("Age:", basic_details["age"])
-print("City:", basic_details["city"])
-
 for index, company in enumerate(basic_details["company"], start=1):
     print("-----------------") 
     print("No:", index)
@@ -149,15 +144,60 @@ for index, company in enumerate(basic_details["company"], start=1):
     print("Status:", company["status"])
     print("Role:", company["role"]) 
     print("City:", company['city'])
-    print("Experience:", ', '.join(filter(None, company['experience'])))
+    counter = 0
+    for exp_index, exp in enumerate(company['experience']):
+        if len(exp) > 0:
+            counter += 1
+            if counter > 1:
+                print(",", exp , end=" ")
+            else:
+                print(exp , end=" ")
+    print()
+
+    html = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Experience</title>
+    <style>
+    table { border-collapse: collapse; width: 50%; font-family: Arial, sans-serif; }
+    th, td { border: 1px solid black; padding: 8px; text-align: left; }
+    ; }
+    th { background-color: #f2f2f2; }
+    </style>
+    </head>
+    <h2>My Job Experience</h2>
+    <table>
+        <tr>
+            <th>Company Name</th>
+            <th>Status</th>
+            <th>Role</th>
+            <th>City</th>
+            <th>Experience</th>
+            </tr>
+"""
+for index, company in enumerate(basic_details["company"], start=1):
+                html += f"""
+                <tr>
+                <td>{company["name"]}</td>
+                <td>{company["status"]}</td>
+                <td>{company["role"]}</td>
+                <td>{company["city"]}</td>
+                <td>
+                    <ul>
+                        {', '.join(company['experience'])}
+                    </ul>
+                </td>
+            </tr>
+            """
+html += """
+                </table>
+                </body>
+                </html>
+                """
+            
+with open("dictionary.html", "w") as html_file:
+    html_file.write(html)
 ```
-
----
-
-### 📖 Learn More
-- [Python Official Documentation](https://docs.python.org/3/)
-- [Python Lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
-- [Python Tuples](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences)
-- [Python Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
 
 🚀 **Happy Coding!** 🎯
