@@ -1,6 +1,6 @@
 # Python - Basic Data Structures (DS)
 
-Python provides several built-in data structures to store and manipulate data efficiently. Two fundamental structures are **Lists** and **Tuples**. Understanding their properties and use cases helps in choosing the right one for specific scenarios.
+Python provides several built-in data structures to store and manipulate data efficiently. Three fundamental structures are **Lists**, **Tuples**, and **Dictionaries**. Understanding their properties and use cases helps in choosing the right one for specific scenarios.
 
 ---
 
@@ -55,34 +55,102 @@ A **tuple** is an ordered, **immutable** (cannot be modified) collection of elem
 
 ---
 
-## 🔍 Comparison Summary
+## 📌 Dictionaries in Python
+A **dictionary** is an unordered collection of key-value pairs, optimized for fast lookups.
 
-| Feature       | List (`[]`) | Tuple (`()`) |
-|--------------|------------|--------------|
-| **Mutability** | Mutable (modifiable) | Immutable (fixed) |
-| **Performance** | Slower (dynamic resizing) | Faster (fixed size) |
-| **Memory Usage** | Uses more memory | Uses less memory |
-| **Methods** | Many built-in methods | Limited methods |
-| **Use Case** | When modifications are needed | When data should not change |
+### 🔹 Key Characteristics
+- **Mutable** → Can be modified after creation (adding, updating, and deleting key-value pairs).
+- **Fast lookups** → Uses a hash table for efficient retrieval.
+- **Syntax:** Defined using **curly braces** `{}`.
+  
+  ```python
+  my_dict = {
+      "name": "Alice",
+      "age": 25,
+      "city": "New York"
+  }
+  ```
+- **Common Methods:**
+  - `keys()`: Returns all keys in the dictionary.
+  - `values()`: Returns all values in the dictionary.
+  - `get(key)`: Retrieves a value for the given key (returns `None` if the key is missing).
+  - `update(dict)`: Merges another dictionary into the existing one.
+  - `pop(key)`: Removes a key-value pair and returns its value.
+
+### ✅ When to Use Dictionaries?
+- When data needs **key-based lookups**.
+- To store structured data in a **flexible, labeled format**.
+- When handling **JSON-like data**.
+- When optimizing performance for **fast retrieval**.
 
 ---
 
 ## 📌 Example Usage in Python
 
 ```python
-# List Example
-fruits = ["apple", "banana", "cherry"]
-fruits.append("orange")  # Adding an element
-fruits.remove("banana")  # Removing an element
-print(fruits)  # Output: ['apple', 'cherry', 'orange']
+# Example for Dictionary
 
-# Tuple Example
-coordinates = (10.5, 20.7)
-# coordinates[0] = 15  # ❌ Error: Tuples are immutable
-print(coordinates[0])  # Output: 10.5
+# Using curly braces
+my_dict = {
+    "name": "Alice",
+    "age": 25,
+    "city": "New York"
+}
+
+# Get all keys
+print(my_dict.keys())
+
+# Get all values
+print(my_dict.values())
+
+# Get name from dictionary
+print(my_dict["name"])
+
+# Get age from dictionary
+print(my_dict.get("age"))
+
+# Get city from dictionary
+print(my_dict.get("city"))
+
+# Get Name as name and Age as age
+name = my_dict.get("name")
+age = my_dict.get("age")
+print(name, age)
+
+# Dictionary containing job experience with company names and statuses
+job_experience = {
+    1: {"company": "Jellycone", "status": "Active"},
+    2: {"company": "Coding Spider", "status": "Active"},
+    3: {"company": "Capgemini", "status": "Removed"},
+    4: {"company": "Aveto Consulting", "status": "Active"}
+}
+
+basic_details = {
+    "name": "Raghottam",
+    "age": 28,
+    "city": "Hubli",
+    "company": [
+        {"name": "Jellycone", "status": "Active", "role": "Platform Developer", "city": "Hubli", "experience": ['Intern', 'Platform Developer']},
+        {"name": "Coding Spider", "status": "Active", "role": "Software Developer", "city": "Hubli", "experience": ['Software Engineer']},
+        {"name": "Capgemini", "status": "Removed", "role": "Software Developer", "city": "Not Specified", "experience": ['']},
+        {"name": "Aveto Consulting", "status": "Active", "role": "Senior Software Developer", "city": "Bangalore - Remote", "experience": ['Associate', 'Software Engineer', 'Senior Software Developer']}
+    ]
+}
+
+print("\nBasic Details:")
+print("Name:", basic_details["name"])
+print("Age:", basic_details["age"])
+print("City:", basic_details["city"])
+
+for index, company in enumerate(basic_details["company"], start=1):
+    print("-----------------") 
+    print("No:", index)
+    print("Company Name:", company["name"])
+    print("Status:", company["status"])
+    print("Role:", company["role"]) 
+    print("City:", company['city'])
+    print("Experience:", ', '.join(filter(None, company['experience'])))
 ```
-
-📌 **Tip:** Use **lists** when frequent modifications are needed, and **tuples** when immutability and performance are priorities.
 
 ---
 
@@ -90,5 +158,6 @@ print(coordinates[0])  # Output: 10.5
 - [Python Official Documentation](https://docs.python.org/3/)
 - [Python Lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
 - [Python Tuples](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences)
+- [Python Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
 
 🚀 **Happy Coding!** 🎯
