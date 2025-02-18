@@ -203,7 +203,7 @@ with open("dictionary.html", "w") as html_file:
 ```
 
 ### 📖 Learn More
-- [Python Official Documentation](https://docs.python.org/3/){:target="_blank"}
+- [Python Official Documentation](https://docs.python.org/3/{:target="_blank"})
 - [Python Lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists){:target="_blank"}
 - [Python Tuples](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences){:target="_blank"}
 - [Python Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries){:target="_blank"}
