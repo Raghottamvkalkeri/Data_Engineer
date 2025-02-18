@@ -200,4 +200,10 @@ with open("dictionary.html", "w") as html_file:
     html_file.write(html)
 ```
 
+### 📖 Learn More
+- [Python Official Documentation](https://docs.python.org/3/)
+- [Python Lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
+- [Python Tuples](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences)
+- [Python Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
+
 🚀 **Happy Coding!** 🎯
