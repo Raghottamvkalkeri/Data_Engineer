@@ -53,6 +53,8 @@ A **tuple** is an ordered, **immutable** (cannot be modified) collection of elem
 - Returning **multiple values** from a function.
 - Handling **variable arguments** in function parameters.
 
+📌 **Tip:** Use **lists** when frequent modifications are needed, and **tuples** when immutability and performance are priorities.
+
 ---
 
 ## 📌 Dictionaries in Python
