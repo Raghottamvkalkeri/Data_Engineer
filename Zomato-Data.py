@@ -5,7 +5,7 @@ import csv
 
 app = Flask(__name__)
 
-@app.route('/get_data', methods=['GET'])
+@app.route('/APIS', methods=['GET'])
 def get_data():
     data_list = []
 
@@ -18,8 +18,9 @@ def get_data():
 
         for index,  row in enumerate(datavalue , start = 1):
             # print("Sl No ", index , "Name " , row[name] , "Ordred Online " ,row[orderdata])
-            data_list.append({"SL No": index, "Name": row[0]})
+            data_list.append({})
 
     return jsonify(data_list)
 
-get_data()
+if __name__ == '__main__':
+    app.run(debug=True)
