@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zomato List</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Zomato List</h1>
+        <!-- <ul>
+            <li v-for="zomato in zomatoList" :key="zomato.id">{{ zomato.name }}</li>
+            <li v-for="zomato in zomatoList" :key="zomato.id">{{ zomato.online_order }}</li>
+        </ul> -->
+        <table>
+            <thead>
+            <tr>
+                    <th>ID</th>
+                        <th>Name</th>
+                            <th>Online Order</th>   
+            </tr>
+            </thead>
+            <tbody>
+                    <tr v-for="(zomato,index) in zomatoList" :key="zomato.id">
+                            <!-- <td>{{ zomato.id }}</td> -->
+                             <td>{{ index + 1 }}</td>
+                            <td>{{ zomato.name }}</td>
+                            <td>{{ zomato.online_order }}</td>
+                    </tr>
+            </tbody>
+            </table>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                zomatoList: []
+            },
+            methods: {
+                async fetchData() {
+                    try {
+                        const response = await fetch('http://127.0.0.1:5000/APIS');
+                        const data = await response.json();
+                        this.zomatoList = data;
+                    } catch (error) {
+                        console.error("Error fetching data:", error);
+                    }
+                }
+            },
+            mounted() {
+                this.fetchData();
+            }
+        });
+    </script>
+</body>
+</html>
