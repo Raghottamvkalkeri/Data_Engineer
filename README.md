@@ -292,7 +292,11 @@ for emp in employees:
 
 # How to Get Data from CSV File and Create Another CSV
 
-This project reads a CSV file (`zomato.csv`), extracts the `name` and `online_order` columns, and converts the data into both JSON and CSV formats.
+This project reads a CSV file (`zomato.csv`), extracted from Kaggle, and processes it by selecting specific columns and converting the data into both JSON and CSV formats.
+
+## Dataset Source
+
+The dataset used in this project is obtained from [Kaggle](https://www.kaggle.com/), a platform that provides a variety of datasets for data analysis and machine learning.
 
 ## Files
 
