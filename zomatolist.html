@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Zomato List</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
+
 <body>
     <div id="app">
         <h1>Zomato List</h1>
@@ -13,21 +15,21 @@
         </ul> -->
         <table>
             <thead>
-            <tr>
+                <tr>
                     <th>ID</th>
-                        <th>Name</th>
-                            <th>Online Order</th>   
-            </tr>
+                    <th>Name</th>
+                    <th>Online Order</th>
+                </tr>
             </thead>
             <tbody>
-                    <tr v-for="(zomato,index) in zomatoList" :key="zomato.id">
-                            <!-- <td>{{ zomato.id }}</td> -->
-                             <td>{{ index + 1 }}</td>
-                            <td>{{ zomato.name }}</td>
-                            <td>{{ zomato.online_order }}</td>
-                    </tr>
+                <tr v-for="(zomato,index) in zomatoList" :key="zomato.id">
+                    <!-- <td>{{ zomato.id }}</td> -->
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ zomato.name }}</td>
+                    <td>{{ zomato.online_order }}</td>
+                </tr>
             </tbody>
-            </table>
+        </table>
 
     </div>
 
@@ -40,7 +42,7 @@
             methods: {
                 async fetchData() {
                     try {
-                        const response = await fetch('http://127.0.0.1:5000/APIS');
+                        const response = await fetch('https://4a65c2dd-7f6b-4ddd-a142-a30af5c90952-00-xzqwpcr87ak8.sisko.replit.dev:8080/APIS');
                         const data = await response.json();
                         this.zomatoList = data;
                     } catch (error) {
@@ -54,4 +56,5 @@
         });
     </script>
 </body>
+
 </html>
