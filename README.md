@@ -289,6 +289,92 @@ for emp in employees:
 
 ---
 
+
+# How to Get Data from CSV File and Create Another CSV
+
+This project reads a CSV file (`zomato.csv`), extracts the `name` and `online_order` columns, and converts the data into both JSON and CSV formats.
+
+## Files
+
+- `zomato.csv` - Input data file containing restaurant details.
+- `zomatodata.csv` - Processed CSV file with selected columns and added serial numbers.
+- `zomato.json` - JSON file containing the extracted data.
+- `zomato.py` - Python script for processing the data.
+
+## Requirements
+
+Ensure you have Python installed along with the required library:
+
+```sh
+pip install pandas
+```
+
+## Usage
+
+Run the script to process the data:
+
+```sh
+python zomato.py
+```
+
+## Code Overview
+
+The script performs the following steps:
+
+1. Reads `zomato.csv` using Pandas.
+2. Selects only `name` and `online_order` columns.
+3. Converts the selected data into JSON format and saves it as `zomato.json`.
+4. Saves the processed data into `zomatodata.csv` with an index column (`SL No`).
+
+## Python Script
+
+```python
+import pandas as pd
+
+# Read the CSV file
+df = pd.read_csv('zomato.csv')
+
+# Select only the name and online_order columns
+selected_columns = df[['name', 'online_order']]
+
+# Convert to JSON
+json_data = selected_columns.to_json(orient='records')
+csv_data = selected_columns.to_csv('zomatodata.csv', index=True , index_label="SL No")
+
+# Write the JSON data to a file
+with open('zomato.json', 'w') as f:
+    f.write(json_data)
+```
+
+## Why Use Pandas Instead of the Default CSV Module?
+
+1. **Ease of Use**: Pandas provides a simple interface for reading, writing, and manipulating data.
+2. **Built-in Functions**: It has built-in functions for handling missing values, filtering, and transformation.
+3. **Efficient Data Handling**: Pandas is optimized for working with large datasets, unlike the built-in `csv` module, which is more suited for basic file operations.
+4. **Automatic Data Type Inference**: Pandas intelligently detects and assigns data types, reducing the need for manual type conversion.
+5. **Multiple Export Formats**: It allows seamless conversion to CSV, JSON, Excel, and other formats with minimal effort.
+
+## Example Output
+
+### JSON Output (`zomato.json`):
+```json
+[
+  {"name": "Restaurant A", "online_order": "Yes"},
+  {"name": "Restaurant B", "online_order": "No"},
+  {"name": "Restaurant C", "online_order": "Yes"}
+]
+```
+
+### CSV Output (`zomatodata.csv`):
+```
+SL No,name,online_order
+1,Restaurant A,Yes
+2,Restaurant B,No
+3,Restaurant C,Yes
+```
+
+
+
 ### 📖 Learn More
 - [Python Official Documentation](https://docs.python.org/3/)
 - [Python Lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
