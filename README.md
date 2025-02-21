@@ -385,6 +385,7 @@ SL No,name,online_order
 - [Python Tuples](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences)
 - [Python Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
 - [Python Sets](https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset)
+- [Pandas Documentation](https://pandas.pydata.org/docs/)
 ---
 
 🚀 **Happy Coding!** 🎯
