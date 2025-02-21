@@ -202,6 +202,75 @@ with open("dictionary.html", "w") as html_file:
     html_file.write(html)
 ```
 
+## 📌 Sets in Python
+A **set** is an unordered collection of **unique** elements. Unlike lists or tuples, sets do not allow duplicates and provide fast lookups.
+
+### 👉 Key Characteristics
+- **Unordered** → The elements have no defined order.
+- **Unique Elements** → Duplicates are automatically removed.
+- **Fast Operations** → Ideal for membership tests and set operations.
+- **Syntax:** Defined using **curly braces** `{}`.
+
+### 📌 Creating a Set
+```python
+my_set = {1, 2, 3, 3, 4, 5}
+print(my_set)  # Output: {1, 2, 3, 4, 5}  # Duplicates removed
+```
+
+### 📌 Adding Elements
+```python
+my_set.add(6)
+print(my_set)  # Output: {1, 2, 3, 4, 5, 6}
+```
+
+### 📌 Removing Elements
+```python
+my_set.remove(3)  # Removes 3, raises error if not found
+my_set.discard(10)  # Does nothing if 10 is not in the set
+```
+
+### 📌 Set Operations
+#### **Union (All Unique Elements from Both Sets)**
+```python
+A = {1, 2, 3}
+B = {3, 4, 5}
+print(A | B)  # Output: {1, 2, 3, 4, 5}
+```
+
+#### **Intersection (Common Elements)**
+```python
+print(A & B)  # Output: {3}
+```
+
+#### **Difference (Elements in A but not in B)**
+```python
+print(A - B)  # Output: {1, 2}
+```
+
+#### **Symmetric Difference (Elements in A or B, but not both)**
+```python
+print(A ^ B)  # Output: {1, 2, 4, 5}
+```
+
+---
+
+## 📌 Real-World Example: Finding Unique Skills for Each Employee
+
+```python
+employees = [
+    {"name": "Raghottam", "skills": ["Python", "Django", "Vue.js", "SQL"]},
+    {"name": "Amit", "skills": ["Java", "Spring Boot", "SQL", "Vue.js"]},
+    {"name": "Neha", "skills": ["Python", "Flask", "React", "SQL"]}
+]
+
+for emp in employees:
+    other_skills = set(skill for other_emp in employees if other_emp != emp for skill in other_emp["skills"])
+    unique_skills = set(emp["skills"]) - other_skills
+    print(f"{emp['name']} → {unique_skills}")
+```
+
+---
+
 ### 📖 Learn More
 - [Python Official Documentation](https://docs.python.org/3/)
 - [Python Lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
