@@ -211,6 +211,24 @@ A **set** is an unordered collection of **unique** elements. Unlike lists or tup
 - **Fast Operations** → Ideal for membership tests and set operations.
 - **Syntax:** Defined using **curly braces** `{}`.
 
+
+## When to Use Sets?
+
+✅ **When you need to store unique values only** (no duplicates).
+
+✅ **For fast membership testing** (`value in set`).
+
+✅ **When performing mathematical set operations** (union, intersection, difference).
+
+✅ **When order doesn't matter** (sets are unordered).
+
+✅ **To remove duplicates from a list quickly.**
+
+✅ **When you need an efficient way to compare groups of items.**
+
+✅ **For optimizing performance** in cases where frequent lookups and uniqueness checks are needed.
+
+
 ### 📌 Creating a Set
 ```python
 my_set = {1, 2, 3, 3, 4, 5}
